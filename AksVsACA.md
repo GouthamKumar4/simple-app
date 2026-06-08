@@ -33,6 +33,39 @@ This document presents an analysis recommending **Azure Kubernetes Service (AKS)
 
 ---
 
+```mermaid
+flowchart LR
+    U[� User / Auditor] -->|🎵 Audio file| UP[📤 Upload service]
+    UP --> Q{❓ AKS or ACA?}
+    Q -->|AKS| A[☸️ AKS + NAP]
+    Q -->|ACA| C[🟦 ACA serverless]
+    A --> G[🎮 T4 GPU inference]
+    C --> G
+    G --> T[🎧 Transcribe audio]
+    T --> R[📝 Transcript response]
+    R --> DB[(🗄️ Audit record)]
+
+    classDef user fill:#475569,stroke:#1e293b,color:#ffffff;
+    classDef upload fill:#1d4ed8,stroke:#1e3a8a,color:#ffffff;
+    classDef choice fill:#f59e0b,stroke:#b45309,color:#111827;
+    classDef aks fill:#16a34a,stroke:#14532d,color:#ffffff;
+    classDef aca fill:#0ea5e9,stroke:#075985,color:#ffffff;
+    classDef gpu fill:#dc2626,stroke:#7f1d1d,color:#ffffff;
+    classDef transcribe fill:#7c3aed,stroke:#4c1d95,color:#ffffff;
+    classDef response fill:#059669,stroke:#064e3b,color:#ffffff;
+    classDef store fill:#0f766e,stroke:#134e4a,color:#ffffff;
+
+    class U user;
+    class UP upload;
+    class Q choice;
+    class A aks;
+    class C aca;
+    class G gpu;
+    class T transcribe;
+    class R response;
+    class DB store;
+```
+
 ## 3. Why AKS for This Workload
 
 ### 3.1 Core platform capabilities
